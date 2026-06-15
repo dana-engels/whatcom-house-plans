@@ -28,14 +28,6 @@ document.querySelectorAll("[data-year]").forEach((element) => {
   element.textContent = String(new Date().getFullYear());
 });
 
-const estimatePreviewForm = document.querySelector("#estimate-preview-form");
-
-estimatePreviewForm?.addEventListener("submit", (event) => {
-  event.preventDefault();
-  document.querySelector("#estimate-form-status").textContent =
-    "Form preview only. Your HoneyBook form will replace this before launch.";
-});
-
 document.querySelectorAll("[data-carousel]").forEach((carousel) => {
   const track = carousel.querySelector(".carousel-track");
   const slides = [...carousel.querySelectorAll(".carousel-slide")];

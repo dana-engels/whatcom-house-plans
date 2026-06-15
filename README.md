@@ -33,7 +33,7 @@ Then visit `http://localhost:4173`.
 
 ## HoneyBook
 
-The homepage estimate section currently contains a visual placeholder form. It does not send submissions. Replace it with the HoneyBook embed before moving the live domain away from Squarespace.
+The homepage estimate section contains the HoneyBook inquiry form. Verify a real test submission on the Cloudflare Pages preview before moving the live domain away from Squarespace.
 
 ## Deploy To Cloudflare Pages
 
