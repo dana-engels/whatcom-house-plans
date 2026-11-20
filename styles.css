@@ -927,6 +927,7 @@ input {
   gap: 70px;
 }
 
+.coming-soon h1,
 .coming-soon h2 {
   margin: 0;
   font-size: clamp(2.5rem, 6vw, 5.5rem);

@@ -75,9 +75,10 @@ npm test
 
 On Linux CI, install browser system dependencies too with
 `npx playwright install --with-deps --only-shell chromium`.
-The Python validator checks local references, IDs, image alternative-text
-attributes, CSS assets, sitemap entries, and redirect destinations. It does
-not emulate Cloudflare redirect/header handling or validate all HTML/CSS rules.
+The check command runs focused ESLint, Stylelint and HTML Validate rules,
+then validates local references, IDs, image alternative-text attributes, CSS
+assets, sitemap entries and redirect destinations with Python. These checks
+do not emulate Cloudflare redirect/header handling or validate every rule.
 Browser tests use a loopback-only fixture server and block third-party requests,
 including HoneyBook: no real inquiries are sent.
 
@@ -115,3 +116,15 @@ supplied by the owner. This repository does not grant a blanket license to
 redistribute them. No open-source code license has been selected. Deployment
 configuration and business integrations are distinct from permission to reuse
 source or assets.
+
+### Accessibility scope
+
+Axe checks the three pages at a mobile viewport. Known color-contrast findings
+from the original design are recorded by exact target in the regression
+baseline; the test rejects new or changed findings rather than silently
+suppressing the contrast rule. Fixing those colors is outside this code-only
+pass. The missing top-level heading on the 404 page was corrected without
+changing its visible text or styling. Keyboard checks verify a focus indicator
+on menu links, FAQ buttons and carousel controls. This is bounded evidence,
+not a claim of full accessibility conformance or a substitute for assistive
+technology testing.

@@ -1,0 +1,77 @@
+{
+  "/": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        [
+          ".process-item:nth-child(1) > strong"
+        ],
+        [
+          ".process-item:nth-child(2) > strong"
+        ],
+        [
+          ".process-item:nth-child(3) > strong"
+        ],
+        [
+          ".process-item:nth-child(4) > strong"
+        ],
+        [
+          "#process > .split.container > .split-copy > .button[href$=\"#estimate\"]"
+        ],
+        [
+          ".about-button"
+        ],
+        [
+          ".proof-heading > .eyebrow"
+        ],
+        [
+          ".proof-projects > .proof-label"
+        ],
+        [
+          ".gallery-carousel > .carousel-controls > .carousel-count[data-carousel-count=\"\"]"
+        ],
+        [
+          ".proof-reviews > .proof-label"
+        ],
+        [
+          ".review-carousel > .carousel-controls > .carousel-count[data-carousel-count=\"\"]"
+        ],
+        [
+          ".container > p:nth-child(3)"
+        ],
+        [
+          ".final-cta > .container > .button[href$=\"#estimate\"]"
+        ]
+      ]
+    }
+  ],
+  "/stock-plans-1/": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        [
+          ".coming-soon > div:nth-child(1) > .eyebrow"
+        ],
+        [
+          ".notice-box > .button[href$=\"/#estimate\"]"
+        ]
+      ]
+    }
+  ],
+  "/404.html": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "nodes": [
+        [
+          ".eyebrow"
+        ],
+        [
+          "a"
+        ]
+      ]
+    }
+  ]
+}

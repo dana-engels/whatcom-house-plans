@@ -3,9 +3,13 @@
   "private": true,
   "scripts": {
     "test": "node --test tests/*.test.cjs",
-    "check": "node --check script.js && python3 tests/validate_site.py"
+    "check": "eslint script.js && stylelint styles.css && html-validate index.html stock-plans-1/index.html 404.html && python3 tests/validate_site.py"
   },
   "devDependencies": {
-    "playwright": "1.62.1"
+    "@axe-core/playwright": "4.14.0",
+    "eslint": "10.15.0",
+    "html-validate": "11.21.1",
+    "playwright": "1.62.1",
+    "stylelint": "18.0.0"
   }
 }

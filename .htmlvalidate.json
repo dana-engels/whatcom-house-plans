@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "no-dup-attr": "error",
+    "no-dup-id": "error",
+    "element-permitted-content": "error",
+    "close-order": "error",
+    "attr-quotes": "error"
+  }
+}
