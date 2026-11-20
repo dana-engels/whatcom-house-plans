@@ -1,0 +1,11 @@
+{
+  "name": "whatcom-house-plans",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/*.test.cjs",
+    "check": "node --check script.js && python3 tests/validate_site.py"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

@@ -787,7 +787,6 @@ input {
 }
 
 .faq-answer {
-  display: none;
   max-width: 760px;
   padding: 0 0 18px;
   color: var(--muted);
@@ -797,8 +796,8 @@ input {
   margin: 0;
 }
 
-.faq-answer.open {
-  display: block;
+.faq-item[data-enhanced] .faq-answer:not(.open) {
+  display: none;
 }
 
 .final-cta {
@@ -1184,4 +1183,45 @@ input {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Essential links remain available when JavaScript cannot enhance navigation. */
+@media (max-width: 980px) {
+  html:not(.navigation-ready) .site-header {
+    position: relative;
+    background: var(--ink);
+  }
+  html:not(.navigation-ready) .site-header-inner {
+    padding-block: 20px;
+  }
+  html:not(.navigation-ready) .site-nav {
+    position: static;
+    grid-column: 1 / -1;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    background: transparent;
+  }
+  html:not(.navigation-ready) .menu-toggle {
+    display: none;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* A failed enhancement leaves the existing content readable. */
+.carousel:not([data-enhanced]) .carousel-track {
+  display: block;
+}
+.carousel:not([data-enhanced]) .carousel-controls {
+  display: none;
 }

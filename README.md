@@ -23,7 +23,7 @@ This website is built entirely with HTML, CSS, and vanilla JavaScript. It does n
 
 ## Preview Locally
 
-From the `site` directory, run:
+From the repository root, run:
 
 ```sh
 python3 -m http.server 4173
@@ -60,3 +60,58 @@ Do not cancel Squarespace hosting until the new website is verified.
 7. Cancel Squarespace website hosting after the new website has been stable for several days.
 
 The domain registration can remain at Squarespace initially. It can be transferred to another registrar separately later.
+
+## Code quality and verification
+
+The site stays static: Node.js is only needed for development checks, not to
+serve the website. Use Node.js 22 or later, npm, and Python 3.10 or later:
+
+```sh
+npm ci
+npx playwright install --only-shell chromium
+npm run check
+npm test
+```
+
+On Linux CI, install browser system dependencies too with
+`npx playwright install --with-deps --only-shell chromium`.
+The Python validator checks local references, IDs, image alternative-text
+attributes, CSS assets, sitemap entries, and redirect destinations. It does
+not emulate Cloudflare redirect/header handling or validate all HTML/CSS rules.
+Browser tests use a loopback-only fixture server and block third-party requests,
+including HoneyBook: no real inquiries are sent.
+
+The checks exercise navigation focus/Escape/resizing, FAQ expansion and access
+without JavaScript, independent carousels and malformed-component fallback,
+reduced motion, page loading, and existing phone/email links. These are focused
+regression checks, not a claim of complete accessibility conformance or a test
+of inquiry delivery. Before deployment, check HoneyBook on the intended preview
+separately; a visible form alone does not establish delivery.
+
+## Implementation boundaries
+
+- Navigation owns the mobile overlay state, keyboard focus, background
+  interaction, and resetting state across the mobile breakpoint.
+- FAQ behavior enhances existing answers only when its controlled element
+  exists; otherwise the answer stays readable.
+- Each carousel validates its markup before enhancement, owns its current
+  slide, and announces user-triggered changes. Inactive slides remain in the
+  visual track but are excluded from assistive-technology navigation. If
+  enhancement is unavailable, the original slides remain readable in sequence.
+- The shared script tolerates pages without these components. The 404 page
+  needs no JavaScript. No framework or production build was introduced.
+
+## Development approach and scope
+
+This website was developed with substantial AI assistance. Dana directed the
+business requirements, content and design. Code and automated checks were
+produced with AI assistance; their existence does not imply independent code
+or test authorship. The code-quality pass preserves the established customer
+content and normal appearance while improving keyboard behavior, resilience
+and repeatable verification.
+
+Fonts, photographs, renderings and other business assets are retained as
+supplied by the owner. This repository does not grant a blanket license to
+redistribute them. No open-source code license has been selected. Deployment
+configuration and business integrations are distinct from permission to reuse
+source or assets.
