@@ -64,7 +64,8 @@ The domain registration can remain at Squarespace initially. It can be transferr
 ## Code quality and verification
 
 The site stays static: Node.js is only needed for development checks, not to
-serve the website. Use Node.js 22 or later, npm, and Python 3.10 or later:
+serve the website. Use Node.js 22.22.2+ within 22.x, 24.15.0+ within 24.x,
+or 26+, together with npm and Python 3.10 or later:
 
 ```sh
 npm ci
